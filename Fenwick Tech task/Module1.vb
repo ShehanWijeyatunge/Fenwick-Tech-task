@@ -21,7 +21,8 @@ Module Module1
         Dim bQuit As Boolean = False
         Do
             'greeting message
-            Console.WriteLine("*******************************************" + nl + "Hello There What would you like to do today")
+            Console.WriteLine(nl + "*******************************************" + nl + "Hello There What would you like to do today")
+
             'Capture user input
             Dim input = Console.ReadLine()
 
@@ -54,9 +55,8 @@ Module Module1
                 Case "help"
                     Call Help()
                 Case "quit"
-                    ' exit program
+                    ' exit statement
                     Console.WriteLine("Exiting Program" + nl)
-
                     bQuit = True
                 Case Else
                     InputError()
@@ -68,8 +68,23 @@ Module Module1
 
     Sub Record(filename As String, vals As String)
         'Saves data into specified filename, path is based on the locations of program
+
         ' check data is numeric
-        If IsNumeric(vals) Then
+        Dim bDataError As Boolean
+        Dim valsCntr As Double
+
+        'split vals string into usable array
+        Dim valsArray() As String = Split(vals, ",")
+
+        'loop through array and confirm data is all numeric before save
+        For Each valsCntr In valsArray
+            If IsNumeric(valsCntr) = False Then
+                Console.WriteLine(" " + valsCntr + " ")
+                bDataError = True
+            End If
+        Next
+
+        If bDataError = False Then
             'locate Program location
             Dim appDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)
             Dim filePath = System.IO.Path.Combine(appDir, filename)
@@ -82,13 +97,13 @@ Module Module1
     End Sub
 
     Sub Summary(filename As String)
+        'summary subroutine
 
         'values to be used in calculations
         Dim dEntries As Double
-        Dim iMin As Int32
-        Dim iMax As Int32
-        Dim iAvg As Int32
-
+        Dim iMin As Double
+        Dim iMax As Double
+        Dim iAvg As Double
 
         'Values to be used in the output strings
         Dim sEntries As String
@@ -97,33 +112,35 @@ Module Module1
         Dim sAvg As String
 
         'used for error handling
-        Dim bfileReadError As Boolean
+        Dim bSummaryError As Boolean
 
         'Find Program location
         Dim appDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)
         Dim filePath = System.IO.Path.Combine(appDir, filename)
 
+        'confirm file exists before reading
         If File.Exists(filePath) Then
 
             'Read File based on program location and filename input from user
             Dim vals() As String = File.ReadAllLines(filename)
 
+            'split string into usable array
             Dim valsArray() As String = Split(vals(0), ",")
 
             'calculate sum of all values for average
             Dim valsSum = 0.0
+            Dim n As Double
             For Each n In valsArray
-                'confirm data integrity
+                'confirm data integrity and adds sum of vals
                 If IsNumeric(n) Then
-                    valsSum += Integer.Parse(n)
+                    valsSum += Convert.ToDouble(n)
                 Else
                     Console.WriteLine(" " + n + " ")
-                    bfileReadError = True
+                    bSummaryError = True
                 End If
-
             Next
 
-            If bfileReadError = False Then
+            If bSummaryError = False Then
 
                 'find total entries
                 dEntries = valsArray.Length
@@ -144,18 +161,16 @@ Module Module1
             Else
                 'data not all numeric failure handling
                 Console.WriteLine("One or more values is not Numeric please verify data integrity")
-
             End If
-
         Else
             'cannot find file error handling
             Console.WriteLine("ERROR cannot find file. Please confirm it exists and try again")
         End If
 
     End Sub
-
     Sub Help()
-        'Help Action
+        'Help subroutine
+
         Dim sHelpIntro As String
         Dim sHelpRecord As String
         Dim sHelpSummary As String
@@ -164,16 +179,13 @@ Module Module1
         sHelpIntro = "This Program is for Recording numeric values into a file, reading that file and then summarizing them."
         sHelpRecord = "Record [filename] [values]   Record will save all values you enter in delimitered by ',' into the your enter filename. The file is save where this programed is located."
         sHelpSummary = "Summary [filename]  Summary will read specified file and display a summarized output. The available outputs are: Number of values entered,Aaverage, Maximum value, Minumum Value."
-        Console.WriteLine(sHelpIntro + nl + "Available Actions: Record, Summary and Help" + nl + sHelpRecord + nl + sHelpSummary + nl)
-
-
+        Console.WriteLine(nl + sHelpIntro + nl + "Available Actions: Record, Summary and Help" + nl + sHelpRecord + nl + sHelpSummary + nl)
 
     End Sub
-
     Sub InputError()
+        ' basic action input error
 
         Console.WriteLine(nl + "Invalid Action Please see help for list of available actions" + nl)
     End Sub
-
 
 End Module
