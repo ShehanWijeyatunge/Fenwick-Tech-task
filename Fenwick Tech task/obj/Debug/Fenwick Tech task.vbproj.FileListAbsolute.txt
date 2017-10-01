@@ -1,0 +1,14 @@
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\bin\Debug\Fenwick Tech task.exe.config
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\bin\Debug\Fenwick Tech task.exe
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\bin\Debug\Fenwick Tech task.pdb
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\bin\Debug\Fenwick Tech task.xml
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\obj\Debug\Fenwick Tech task.vbprojResolveAssemblyReference.cache
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\obj\Debug\Fenwick_Tech_task.Resources.resources
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\obj\Debug\Fenwick Tech task.vbproj.GenerateResource.Cache
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\obj\Debug\Fenwick Tech task.exe
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\obj\Debug\Fenwick Tech task.xml
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\obj\Debug\Fenwick Tech task.pdb
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\bin\Debug\Fenwick Tech task.exe.manifest
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\bin\Debug\Fenwick Tech task.application
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\obj\Debug\Fenwick Tech task.exe.manifest
+c:\users\admin\documents\visual studio 2015\Projects\Fenwick Tech task\Fenwick Tech task\obj\Debug\Fenwick Tech task.application
